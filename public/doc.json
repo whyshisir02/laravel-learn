@@ -1,0 +1,837 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Api Documentation",
+        "description": "Laravel autogenerate swagger",
+        "termsOfService": "http:\/\/swagger.io\/terms\/",
+        "contact": {
+            "email": "hussein4alaa@gmail.com"
+        },
+        "license": {
+            "name": "Github",
+            "url": "https:\/\/github.com\/hussein4alaa"
+        },
+        "version": "3.0.7"
+    },
+    "servers": [
+        {
+            "url": "http:\/\/localhost",
+            "description": "localhost"
+        }
+    ],
+    "components": {
+        "tags": [
+            {
+                "name": "Test",
+                "description": null
+            },
+            {
+                "name": "Data",
+                "description": null
+            },
+            {
+                "name": "Auth",
+                "description": null
+            },
+            {
+                "name": "User",
+                "description": null
+            },
+            {
+                "name": "Health",
+                "description": null
+            }
+        ],
+        "paths": {
+            "\/api\/hello": {
+                "get": {
+                    "tags": [
+                        "Test"
+                    ],
+                    "summary": "hello",
+                    "description": "",
+                    "operationId": "_api_hello_GET|HEAD",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "message": "Hello from controller"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "\/api\/create": {
+                "post": {
+                    "tags": [
+                        "Data"
+                    ],
+                    "summary": "create",
+                    "description": "",
+                    "operationId": "_api_create_POST",
+                    "parameters": [],
+                    "responses": [],
+                    "security": [
+                        {
+                            "authorization": []
+                        },
+                        {
+                            "apiKey1": []
+                        }
+                    ]
+                }
+            },
+            "\/api\/users": {
+                "get": {
+                    "tags": [
+                        "Data"
+                    ],
+                    "summary": "users",
+                    "description": "",
+                    "operationId": "_api_users_GET|HEAD",
+                    "parameters": [],
+                    "responses": []
+                }
+            },
+            "\/api\/users\/{id}": {
+                "put": {
+                    "tags": [
+                        "Data"
+                    ],
+                    "summary": "users",
+                    "description": "",
+                    "operationId": "_api_users__id__PUT",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "404": {
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 404,
+                                        "message": "Record not found"
+                                    }
+                                }
+                            },
+                            "description": "Not found"
+                        }
+                    }
+                },
+                "patch": {
+                    "tags": [
+                        "Data"
+                    ],
+                    "summary": "users",
+                    "description": "",
+                    "operationId": "_api_users__id__PATCH",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "404": {
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 404,
+                                        "message": "Record not found"
+                                    }
+                                }
+                            },
+                            "description": "Not found"
+                        }
+                    }
+                },
+                "delete": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "users",
+                    "description": "",
+                    "operationId": "_api_users__id__DELETE",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 200,
+                                        "message": "Data Delete Successfully"
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 404,
+                                        "message": "Record not found"
+                                    }
+                                }
+                            },
+                            "description": "Not found"
+                        },
+                        "403": {
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 403,
+                                        "message": "Cannot delete admin role"
+                                    }
+                                }
+                            },
+                            "description": "Forbidden"
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        },
+                        {
+                            "apiKey1": []
+                        }
+                    ]
+                }
+            },
+            "\/api\/v1\/register": {
+                "post": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "register",
+                    "description": "",
+                    "operationId": "_api_v1_register_POST",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 201,
+                                        "message": "User registered successfully"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/login": {
+                "post": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "login",
+                    "description": "",
+                    "operationId": "_api_v1_login_POST",
+                    "parameters": [],
+                    "responses": {
+                        "401": {
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status_code": 401,
+                                        "message": "Invalid credentials"
+                                    }
+                                }
+                            },
+                            "description": "Unauthorized"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/posts": {
+                "get": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "posts",
+                    "description": "",
+                    "operationId": "_api_v1_posts_GET|HEAD",
+                    "parameters": [],
+                    "responses": {
+                        "503": {
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 503,
+                                        "success": false,
+                                        "message": "No internet connection. Please check your network and try again."
+                                    }
+                                }
+                            },
+                            "description": "Server error"
+                        }
+                    }
+                }
+            },
+            "\/api\/v1\/users": {
+                "get": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "users",
+                    "description": "",
+                    "operationId": "_api_v1_users_GET|HEAD",
+                    "parameters": [],
+                    "responses": []
+                }
+            },
+            "\/api\/v1\/users\/{id}": {
+                "get": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "users",
+                    "description": "",
+                    "operationId": "_api_v1_users__id__GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": []
+                }
+            },
+            "\/api\/v1\/subscription-plans\/{id}": {
+                "get": {
+                    "tags": [
+                        "User"
+                    ],
+                    "summary": "subscription-plans",
+                    "description": "",
+                    "operationId": "_api_v1_subscription-plans__id__GET|HEAD",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "in": "path",
+                            "description": "id",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": []
+                }
+            },
+            "\/api\/test-db": {
+                "get": {
+                    "tags": [
+                        "Health"
+                    ],
+                    "summary": "test-db",
+                    "description": "",
+                    "operationId": "_api_test-db_GET|HEAD",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status": 200,
+                                        "message": "connection success"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        },
+                        {
+                            "apiKey1": []
+                        }
+                    ]
+                }
+            },
+            "\/api\/logout": {
+                "post": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "logout",
+                    "description": "",
+                    "operationId": "_api_logout_POST",
+                    "parameters": [],
+                    "responses": {
+                        "200": {
+                            "description": "OK",
+                            "content": {
+                                "application\/json": {
+                                    "example": {
+                                        "status_code": 200,
+                                        "message": "Logged out successfully"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "security": [
+                        {
+                            "authorization": []
+                        },
+                        {
+                            "apiKey1": []
+                        }
+                    ]
+                }
+            }
+        },
+        "schemas": [],
+        "securitySchemes": {
+            "authorization": {
+                "type": "apiKey",
+                "name": "authorization",
+                "in": "header"
+            },
+            "apiKey1": {
+                "type": "apiKey",
+                "name": "key1",
+                "in": "query"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Test",
+            "description": null
+        },
+        {
+            "name": "Data",
+            "description": null
+        },
+        {
+            "name": "Auth",
+            "description": null
+        },
+        {
+            "name": "User",
+            "description": null
+        },
+        {
+            "name": "Health",
+            "description": null
+        }
+    ],
+    "paths": {
+        "\/api\/hello": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "hello",
+                "description": "",
+                "operationId": "_api_hello_GET|HEAD",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "message": "Hello from controller"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/api\/create": {
+            "post": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "create",
+                "description": "",
+                "operationId": "_api_create_POST",
+                "parameters": [],
+                "responses": [],
+                "security": [
+                    {
+                        "authorization": []
+                    },
+                    {
+                        "apiKey1": []
+                    }
+                ]
+            }
+        },
+        "\/api\/users": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "users",
+                "description": "",
+                "operationId": "_api_users_GET|HEAD",
+                "parameters": [],
+                "responses": []
+            }
+        },
+        "\/api\/users\/{id}": {
+            "put": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "users",
+                "description": "",
+                "operationId": "_api_users__id__PUT",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 404,
+                                    "message": "Record not found"
+                                }
+                            }
+                        },
+                        "description": "Not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "users",
+                "description": "",
+                "operationId": "_api_users__id__PATCH",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 404,
+                                    "message": "Record not found"
+                                }
+                            }
+                        },
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "users",
+                "description": "",
+                "operationId": "_api_users__id__DELETE",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 200,
+                                    "message": "Data Delete Successfully"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 404,
+                                    "message": "Record not found"
+                                }
+                            }
+                        },
+                        "description": "Not found"
+                    },
+                    "403": {
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 403,
+                                    "message": "Cannot delete admin role"
+                                }
+                            }
+                        },
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    },
+                    {
+                        "apiKey1": []
+                    }
+                ]
+            }
+        },
+        "\/api\/v1\/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "register",
+                "description": "",
+                "operationId": "_api_v1_register_POST",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 201,
+                                    "message": "User registered successfully"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "login",
+                "description": "",
+                "operationId": "_api_v1_login_POST",
+                "parameters": [],
+                "responses": {
+                    "401": {
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status_code": 401,
+                                    "message": "Invalid credentials"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/posts": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "posts",
+                "description": "",
+                "operationId": "_api_v1_posts_GET|HEAD",
+                "parameters": [],
+                "responses": {
+                    "503": {
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 503,
+                                    "success": false,
+                                    "message": "No internet connection. Please check your network and try again."
+                                }
+                            }
+                        },
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "\/api\/v1\/users": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "users",
+                "description": "",
+                "operationId": "_api_v1_users_GET|HEAD",
+                "parameters": [],
+                "responses": []
+            }
+        },
+        "\/api\/v1\/users\/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "users",
+                "description": "",
+                "operationId": "_api_v1_users__id__GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": []
+            }
+        },
+        "\/api\/v1\/subscription-plans\/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "subscription-plans",
+                "description": "",
+                "operationId": "_api_v1_subscription-plans__id__GET|HEAD",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": []
+            }
+        },
+        "\/api\/test-db": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "summary": "test-db",
+                "description": "",
+                "operationId": "_api_test-db_GET|HEAD",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status": 200,
+                                    "message": "connection success"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    },
+                    {
+                        "apiKey1": []
+                    }
+                ]
+            }
+        },
+        "\/api\/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "logout",
+                "description": "",
+                "operationId": "_api_logout_POST",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application\/json": {
+                                "example": {
+                                    "status_code": 200,
+                                    "message": "Logged out successfully"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "authorization": []
+                    },
+                    {
+                        "apiKey1": []
+                    }
+                ]
+            }
+        }
+    }
+}
