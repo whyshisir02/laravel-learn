@@ -56,6 +56,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\ImageOptimizerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Client\ConnectionException;
@@ -66,7 +67,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rules\Password;
 class AuthController extends Controller
 {
-    public function register(Request $request): JsonResponse
+    public function register(Request $request, ImageOptimizerService $optimizer): JsonResponse
     {
         $request->validate([            
             'password' => [
@@ -79,12 +80,41 @@ class AuthController extends Controller
             ],
         ]);
 
+        $imagePath = null;
+
+        $request->validate([
+            'image' => [
+                'nullable',
+                'image',
+                'mimes:jpg,jpeg,png,webp',
+                'max:2048',
+            ],
+        ]);
+
+        // Handle file upload
+        // if ($request->hasFile('image')) {
+        //     // Stores in: storage/app/public/avatars/.ext
+        //     $imagePath = $request->file('image')->store('avatars', 'public');
+        // }
+
+        if ($request->hasFile('image')) {
+            $imagePath = $optimizer->optimizeAndStore(
+                file: $request->file('image'),
+                directory: 'avatars',
+                maxWidth: 1000,
+                maxHeight: 1000,
+                quality: 80
+            );
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
+            'image'=> $imagePath,
         ]);
+
 
         
         return response()->json([
